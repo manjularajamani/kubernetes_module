@@ -1,0 +1,30 @@
+controller:
+  adminUser: "admin"
+  adminPassword: "admin@123"
+  installLatestPlugins: false
+
+  ingress:
+    enabled: true
+    apiVersion: networking.k8s.io/v1
+    annotations: 
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+      alb.ingress.kubernetes.io/healthcheck-port: '8080'
+      alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+      alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+      alb.ingress.kubernetes.io/success-codes: '200'
+      alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+      alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    
+
+
+
+persistence:
+  enabled: false
+
+serviceAccountAgent:  
+  create: true
+
+ 

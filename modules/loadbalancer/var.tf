@@ -1,0 +1,13 @@
+variable "cluster_endpoint" {}
+variable "cluster_token" {}
+variable "cluster_certificate" {}
+variable "alb-serviceaccount" {}
+variable "account_id" {}
+variable "alb-namespace" {}
+variable "cluster_name" {}
+variable "alb-policy-name" {}
+variable "identity-oidc-issuer" {}
+variable "aws_iam_openid_connect_provider" {}
+variable "alb_ingress_name" {}
+variable "alb_ingress_repo" {}
+variable "alb_chart" {}
