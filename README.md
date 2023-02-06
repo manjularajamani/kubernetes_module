@@ -1,4 +1,4 @@
-# terraform_aws_k8s_jenkins
+# terraform-eks-jenkins
 
 This repo contains a Terraform plan for deploying Jenkins with Application load balancing on Amazon EKS
 
