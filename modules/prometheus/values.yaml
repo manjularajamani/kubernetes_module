@@ -1,0 +1,35 @@
+server:
+ 
+  global:
+    scrape_interval: 10s
+
+
+serverFiles:
+  prometheus.yml:
+    
+    scrape_configs:
+      - job_name: prometheus
+        static_configs:
+          - targets:
+            - 0.0.0.0:9090
+
+  persistentVolume:
+    enabled: false
+
+
+
+alertmanager:
+  enabled: false
+
+kube-state-metrics:
+  enabled: false
+
+prometheus-node-exporter:
+  enabled: false
+
+prometheus-pushgateway:
+  enabled: false
+
+  
+
+    

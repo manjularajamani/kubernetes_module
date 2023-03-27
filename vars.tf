@@ -2,12 +2,12 @@
 
 variable "aws_access_key" {
   type        = string
-  default     = ""
+  default     = "AKIAXIVEWCQ7YXAJNFOD"
 }
 
 variable "aws_secret_key" {
   type        = string
-  default     = ""
+  default     = "KSqGUsLx/d6HImebY9qryULWQyizj7CowYas5f+y"
 }
 
 variable "aws_region" {
@@ -96,16 +96,16 @@ variable "alb_chart" {
 
 }
 
-variable "alb-serviceaccount" {
+variable "alb_serviceaccount" {
   default = "alb-service-account"
 
 }
 
-variable "alb-namespace" {
+variable "alb_namespace" {
   default = "kube-system"
 }
 
-variable "alb-policy-name" {
+variable "alb_policy_name" {
   default = "aws-load-balancer-controller-policy"
 
 }
@@ -123,5 +123,35 @@ variable "jenkins_repo" {
 
 variable "jenkins_chart" {
   default = "jenkins"
+
+}
+
+# Variable for prometheus module
+
+variable "prometheus_name" {
+  default = "prometheus"
+}
+
+variable "prometheus_repo" {
+  default = "https://prometheus-community.github.io/helm-charts"
+}
+
+variable "prometheus_chart" {
+  default = "prometheus"
+
+}
+
+# Variable for grafana module
+
+variable "grafana_name" {
+  default = "grafana"
+}
+
+variable "grafana_repo" {
+  default = "https://grafana.github.io/helm-charts"
+}
+
+variable "grafana_chart" {
+  default = "grafana"
 
 }

@@ -1,0 +1,35 @@
+readinessProbe:
+  httpGet:
+    path: /api/health
+    port: 3000
+  initialDelaySeconds: 30
+  timeoutSeconds: 30
+
+ingress:
+  enabled: true
+  apiVersion: networking.k8s.io/v1
+  annotations: 
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: '3000'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    # alb.ingress.kubernetes.io/group.name: alb.group
+    # alb.ingress.kubernetes.io/group.order: '2'
+
+
+  # path: /
+  # pathType: Prefix
+  hosts:
+    - grafana.cmcloudlab2040.info    
+
+
+grafana.ini:
+  server:
+    root_url: http://grafana.cmcloudlab2040.info
+    serve_from_sub_path: true

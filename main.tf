@@ -30,12 +30,12 @@ module "loadbalancer" {
   alb_ingress_name                = var.alb_ingress_name
   alb_ingress_repo                = var.alb_ingress_repo
   alb_chart                       = var.alb_chart
-  alb-serviceaccount              = var.alb-serviceaccount
-  alb-namespace                   = var.alb-namespace
-  alb-policy-name                 = var.alb-policy-name
+  alb_serviceaccount              = var.alb_serviceaccount
+  alb_namespace                   = var.alb_namespace
+  alb_policy_name                 = var.alb_policy_name
   account_id                      = module.eks.account_id
   cluster_name                    = module.eks.eks_cluster_name
-  identity-oidc-issuer            = module.eks.identity-oidc-issuer
+  identity_oidc_issuer            = module.eks.identity-oidc-issuer
   aws_iam_openid_connect_provider = module.eks.aws_iam_openid_connect_provider
 
 }
@@ -46,7 +46,7 @@ module "jenkins" {
   jenkins_name  = var.jenkins_name
   jenkins_repo  = var.jenkins_repo
   jenkins_chart = var.jenkins_chart
-  jenkins-namespace = module.loadbalancer.name_space   // able to use another namespace
+  jenkins_namespace = module.loadbalancer.name_space   // able to use another namespace
 
   cluster_endpoint    = module.eks.endpoint
   cluster_token       = module.eks.token
@@ -54,3 +54,27 @@ module "jenkins" {
 
 }
 
+module "prometheus" {
+  source        = "./modules/prometheus"
+  prometheus_name = var.prometheus_name
+  prometheus_repo  = var.prometheus_repo
+  prometheus_chart = var.prometheus_chart
+  prometheus_namespace = module.loadbalancer.name_space 
+
+  cluster_endpoint    = module.eks.endpoint
+  cluster_token       = module.eks.token
+  cluster_certificate = module.eks.kubeconfig-certificate-authority-data
+}
+
+
+module "grafana" {
+  source        = "./modules/grafana"
+  grafana_name = var.grafana_name
+  grafana_repo  = var.grafana_repo
+  grafana_chart = var.grafana_chart
+  grafana_namespace = module.loadbalancer.name_space 
+
+  cluster_endpoint    = module.eks.endpoint
+  cluster_token       = module.eks.token
+  cluster_certificate = module.eks.kubeconfig-certificate-authority-data
+}
