@@ -13,7 +13,7 @@ resource "helm_release" "jenkins" {
   name       = var.jenkins_name
   repository = var.jenkins_repo
   chart      = var.jenkins_chart
-  namespace  = var.jenkins-namespace           // we can also use another namespace Ex: namespace = <naspace_name>
+  namespace  = var.jenkins_namespace           // we can also use another namespace Ex: namespace = <naspace_name>
   timeout    = 300
 
 

@@ -18,7 +18,7 @@ provider "helm" {
 # Creating role for ALB ingress controller
 
 resource "aws_iam_role" "alb_role" {
-  name = var.alb-serviceaccount
+  name = var.alb_serviceaccount
   path = "/"
   assume_role_policy = jsonencode({
     Statement = [{
@@ -42,7 +42,7 @@ resource "aws_iam_role" "alb_role" {
 }
 
 resource "aws_iam_policy" "alb-policy" {
-  name        = var.alb-policy-name
+  name        = var.alb_policy_name
   description = format("Allow aws-load-balancer-controller to manage AWS resources")
   path        = "/"
   policy      = file("${path.module}/policy.json")
@@ -57,8 +57,8 @@ resource "aws_iam_role_policy_attachment" "alb-policy-attachment" {
 
 
 locals {
-  oidc_fully_qualified_subjects = format("system:serviceaccount:%s:%s", var.alb-namespace, var.alb-serviceaccount)
-  oidcprovider                  = replace(var.identity-oidc-issuer, "/(https://)/", "")
+  oidc_fully_qualified_subjects = format("system:serviceaccount:%s:%s", var.alb_namespace, var.alb_serviceaccount)
+  oidcprovider                  = replace(var.identity_oidc_issuer, "/(https://)/", "")
 }
 
 # Installing ALB loadbalancer using helm
@@ -68,13 +68,13 @@ resource "helm_release" "alb_ingress" {
   name       = var.alb_ingress_name
   repository = var.alb_ingress_repo
   chart      = var.alb_chart
-  namespace  = var.alb-namespace
+  namespace  = var.alb_namespace
   timeout    = 300
 
   dynamic "set" {
     for_each = {
       "clusterName"                                               = var.cluster_name
-      "serviceAccount.name"                                       = var.alb-serviceaccount
+      "serviceAccount.name"                                       = var.alb_serviceaccount
       "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn" = aws_iam_role.alb_role.arn
     }
 
