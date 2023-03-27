@@ -64,3 +64,17 @@ terraform init
 terraform plan 
 terraform apply --auto-approve
 ```
+
+## Prometheus
+
+## Step: 1
+Before installing Prometheus we need to add [Amazon EKS add-on](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#updating-ebs-csi-eks-add-on) on AWS EKS Cluster To resolve volume binding error
+
+## Step: 2
+Run terraform plan
+
+## Step: 3
+We need to perform [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod) action to check whether the Prometheus deployed successfully or not
+```
+kubectl port-forward service/prometheus-server 9090:80
+```
