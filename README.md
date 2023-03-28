@@ -28,6 +28,7 @@ This repo contains a Terraform plan for deploying Jenkins with Application load 
 | `aws_eks_worker` | Resource |
 | `helm` | Resource |
 | `kubernetes` | Resource |
+| `LoadBalancer` | Resource |
 
 
 ## Inputs
@@ -56,7 +57,12 @@ This repo contains a Terraform plan for deploying Jenkins with Application load 
 | `jenkins_name`  | string | yes |
 | `jenkins_repo`  | string | yes |
 | `jenkins_chart`  | string | yes |
-
+| `prometheus_name`  | string | yes |
+| `prometheus_repo`  | string | yes |
+| `prometheus_chart`  | string | yes |
+| `grafana_name`  | string | yes |
+| `grafana_repo`  | string | yes |
+| `grafana_chart`  | string | yes |
 
 # Deployments
 
