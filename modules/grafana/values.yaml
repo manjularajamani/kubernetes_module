@@ -19,16 +19,16 @@ ingress:
     alb.ingress.kubernetes.io/success-codes: '200'
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-    # alb.ingress.kubernetes.io/group.name: alb.group
-    # alb.ingress.kubernetes.io/group.order: '2'
+    alb.ingress.kubernetes.io/group.name: alb.group
+    alb.ingress.kubernetes.io/group.order: '2'
 
 
-  # path: /
-  # pathType: Prefix
+  path: /grafana
+  pathType: Prefix
   hosts:
     - ""
 
-# grafana.ini:
-#   server:
-#     root_url: http://
-#     serve_from_sub_path: true
+grafana.ini:
+  server:
+    root_url: http://0.0.0.0:3000/grafana
+    serve_from_sub_path: true
