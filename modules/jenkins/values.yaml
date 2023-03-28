@@ -22,15 +22,17 @@ controller:
       alb.ingress.kubernetes.io/group.name: alb.group
       alb.ingress.kubernetes.io/group.order: '1'
        
-  
+    
     paths: 
       - backend:
-          serviceName: jenkins
-          servicePort: 8080
-        path: "/jenkins"
-        pathType: Prefix
+          service: 
+            name: jenkins
+            port:
+              number: 8080
+        path: "/jenkins"  
+        pathType: Prefix  
 
-
+   
 persistence:
   enabled: false
 
