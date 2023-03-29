@@ -18,17 +18,17 @@ serverFiles:
 
 
 
-alertmanager:
-  enabled: false
+# alertmanager:
+#   enabled: false
 
-kube-state-metrics:
-  enabled: false
+# kube-state-metrics:
+#   enabled: false
 
-prometheus-node-exporter:
-  enabled: false
+# prometheus-node-exporter:
+#   enabled: false
 
-prometheus-pushgateway:
-  enabled: false
+# prometheus-pushgateway:
+#   enabled: false
 
   
 

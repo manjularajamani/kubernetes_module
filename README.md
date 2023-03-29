@@ -80,7 +80,7 @@ terraform apply --auto-approve
 ## Step: 3
 We need to perform [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod) action to check whether the Prometheus deployed successfully or not
 ```
-kubectl port-forward service/prometheus-server 9090:80
+kubectl port-forward service/prometheus-server 9090:80 -n kube-system
 ```
 
 ## Step: 4
@@ -94,3 +94,9 @@ To check Grafana
 ```
 <loadbalancer_url>/grafana
 ```
+To login into Grafana using the default username and password use the below command
+```
+kubectl get secret grafana -n kube-system -o yaml
+```
+
+Decode the credentials and use it
