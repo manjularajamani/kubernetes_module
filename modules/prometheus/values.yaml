@@ -11,7 +11,15 @@ serverFiles:
       - job_name: prometheus
         static_configs:
           - targets:
-            - 0.0.0.0:9090
+            - prometheus-server.kube-system.svc.cluster.local:80
+      - job_name: 'kube-state-metrics'
+        static_configs:
+          - targets: 
+            - kube-state-metrics.kube-system.svc.cluster.local:8080
+      - job_name: prometheus
+        static_configs:
+          - targets:
+            - prometheus-node-exporter.kube-system.svc.cluster.local:9100 
 
   persistentVolume:
     enabled: false
@@ -26,6 +34,9 @@ serverFiles:
 
 # prometheus-node-exporter:
 #   enabled: false
+    
+    rbac:
+    pspEnabled: true
 
 # prometheus-pushgateway:
 #   enabled: false

@@ -6,6 +6,8 @@ provider "helm" {
   }
 }
 
+
+
 # Installing Jenkins using Helm
 
 resource "helm_release" "jenkins" {

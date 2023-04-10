@@ -8,12 +8,22 @@ provider "helm" {
   }
 }
 
-# provider "kubernetes" {
-#     host                   = var.cluster_endpoint
-#     token                  = var.cluster_token
-#     cluster_ca_certificate = base64decode(var.cluster_certificate)
-# }
+provider "kubernetes" {
+    host                   = var.cluster_endpoint
+    token                  = var.cluster_token
+    cluster_ca_certificate = base64decode(var.cluster_certificate)
+}
 
+# Creating NameSpace
+
+resource "kubernetes_namespace" "k8s_monitering" {
+  metadata {
+    annotations = {
+      name = "monitering_kubernetes"
+    }
+       name = "monitering"
+  }
+}
 
 # Creating role for ALB ingress controller
 

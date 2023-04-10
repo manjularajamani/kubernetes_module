@@ -46,7 +46,7 @@ module "jenkins" {
   jenkins_name  = var.jenkins_name
   jenkins_repo  = var.jenkins_repo
   jenkins_chart = var.jenkins_chart
-  jenkins_namespace = module.loadbalancer.name_space   // able to use another namespace
+  jenkins_namespace = var.jenkins_namespace   // able to use another namespace
 
   cluster_endpoint    = module.eks.endpoint
   cluster_token       = module.eks.token
@@ -59,8 +59,7 @@ module "prometheus" {
   prometheus_name = var.prometheus_name
   prometheus_repo  = var.prometheus_repo
   prometheus_chart = var.prometheus_chart
-  prometheus_namespace = module.loadbalancer.name_space 
-
+  prometheus_namespace = var.prometheus_namespace
   cluster_endpoint    = module.eks.endpoint
   cluster_token       = module.eks.token
   cluster_certificate = module.eks.kubeconfig-certificate-authority-data
@@ -72,8 +71,7 @@ module "grafana" {
   grafana_name = var.grafana_name
   grafana_repo  = var.grafana_repo
   grafana_chart = var.grafana_chart
-  grafana_namespace = module.loadbalancer.name_space 
-
+  grafana_namespace = var.grafana_namespace
   cluster_endpoint    = module.eks.endpoint
   cluster_token       = module.eks.token
   cluster_certificate = module.eks.kubeconfig-certificate-authority-data
