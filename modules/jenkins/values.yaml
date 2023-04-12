@@ -1,7 +1,9 @@
 controller:
   adminUser: "admin"
   adminPassword: "admin@123"
-  installLatestPlugins: false
+  installPlugins:
+    - prometheus:2.2.1
+    - cloudbees-disk-usage-simple:178.v1a_4d2f6359a_8
 
   jenkinsUriPrefix: "/jenkins"
 

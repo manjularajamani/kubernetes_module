@@ -2,12 +2,12 @@
 
 variable "aws_access_key" {
   type        = string
-  default     = ""
+  default     = "AKIA3MIVPDQ3EFFG5X7B"
 }
 
 variable "aws_secret_key" {
   type        = string
-  default     = ""
+  default     = "g4kr3izws+kcAnBb/lT0JGIM6DH575Iw1glHhq1M"
 }
 
 variable "aws_region" {
@@ -127,7 +127,7 @@ variable "jenkins_chart" {
 }
 
 variable "jenkins_namespace" {
-  default = "monitering"
+  default = "monitoring"
 }
 
 # Variable for prometheus module
@@ -146,7 +146,7 @@ variable "prometheus_chart" {
 }
 
 variable "prometheus_namespace" {
-  default = "monitering"
+  default = "monitoring"
 }
 
 # Variable for grafana module
@@ -165,5 +165,5 @@ variable "grafana_chart" {
 }
 
 variable "grafana_namespace" {
-  default = "monitering"
+  default = "monitoring"
 }

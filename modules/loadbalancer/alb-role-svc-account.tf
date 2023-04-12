@@ -16,12 +16,12 @@ provider "kubernetes" {
 
 # Creating NameSpace
 
-resource "kubernetes_namespace" "k8s_monitering" {
+resource "kubernetes_namespace" "k8s_monitoring" {
   metadata {
     annotations = {
-      name = "monitering_kubernetes"
+      name = "monitoring_kubernetes"
     }
-       name = "monitering"
+       name = "monitoring"
   }
 }
 
