@@ -13,9 +13,9 @@ serverFiles:
     scrape_configs:
 
       - job_name: 'jenkins'
-        metrics_path: /prometheus
+        metrics_path: /jenkins/prometheus
         static_configs:
-          - targets: ['jenkins.monitoring.svc.cluster.local:8080/jenkins']
+          - targets: ['jenkins.monitoring.svc.cluster.local:8080']
 
       - job_name: 'kubernetes-apiservers'
 
@@ -140,6 +140,3 @@ serverFiles:
 
 alertmanager:
   enabled: false
-  
-
-    
