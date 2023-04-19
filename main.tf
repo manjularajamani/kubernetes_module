@@ -76,3 +76,15 @@ module "grafana" {
   cluster_token       = module.eks.token
   cluster_certificate = module.eks.kubeconfig-certificate-authority-data
 }
+
+
+module "ebs_csi" {
+  source        = "./modules/ebs-csi"
+  ebs_csi_name = var.ebs_csi_name
+  ebs_csi_repo  = var.ebs_csi_repo
+  ebs_csi_chart = var.ebs_csi_chart
+  ebs_csi_namespace = var.ebs_csi_namespace
+  cluster_endpoint    = module.eks.endpoint
+  cluster_token       = module.eks.token
+  cluster_certificate = module.eks.kubeconfig-certificate-authority-data
+}

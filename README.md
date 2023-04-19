@@ -63,33 +63,32 @@ This repo contains a Terraform plan for deploying Jenkins with Application load 
 | `grafana_name`  | string | yes |
 | `grafana_repo`  | string | yes |
 | `grafana_chart`  | string | yes |
+| `ebs_csi_name`  | string | yes |
+| `ebs_csi_repo`  | string | yes |
+| `ebs_csi_chart`  | string | yes |
 
 # Deployments
 
-## Step: 1 (Prometheus)
-Before installing Prometheus we need to add [Amazon EKS add-on](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#updating-ebs-csi-eks-add-on) on AWS EKS Cluster To resolve volume binding error
-
-
-## Step: 2
+## Step: 1
 ```
 terraform init
 terraform plan 
 terraform apply --auto-approve
 ```
 
-## Step: 3
+## Step: 2
 We need to perform [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/#forward-a-local-port-to-a-port-on-the-pod) action to check whether the Prometheus deployed successfully or not
 ```
-kubectl port-forward service/prometheus-server 9090:9090 -n monitoring
+kubectl port-forward service/prometheus-server 9090:80 -n monitoring
 ```
 
-## Step: 4
+## Step: 3
 To check Jenkins
 ```
 <loadbalancer_url>/jenkins
 ```
 
-## step: 5
+## step: 4
 To check Grafana
 ```
 <loadbalancer_url>/grafana

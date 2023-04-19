@@ -2,12 +2,12 @@
 
 variable "aws_access_key" {
   type        = string
-  default     = ""
+  default     = "AKIAVU5UBWBKYQLHR3M5"
 }
 
 variable "aws_secret_key" {
   type        = string
-  default     = ""
+  default     = "keumo8DOrwuJ4S0nP7Gqyhesq6HnQNwzZrq0oUXh"
 }
 
 variable "aws_region" {
@@ -165,5 +165,26 @@ variable "grafana_chart" {
 }
 
 variable "grafana_namespace" {
+  default = "monitoring"
+}
+
+
+# Variable for aws-ebs-csi-driver module
+
+variable "ebs_csi_name" {
+  default = "aws-ebs-csi-driver"
+}
+
+variable "ebs_csi_repo" {
+  default = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
+}
+
+variable "ebs_csi_chart" {
+  type    = any
+  default = "aws-ebs-csi-driver"
+
+}
+
+variable "ebs_csi_namespace" {
   default = "monitoring"
 }
