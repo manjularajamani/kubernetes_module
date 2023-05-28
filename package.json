@@ -1,5 +1,5 @@
 {
   "devDependencies": {
-    "@semantic-release/npm": "^10.0.3"
+    "semantic-release": "^21.0.2"
   }
 }
