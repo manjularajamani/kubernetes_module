@@ -17,3 +17,8 @@ output "route_id" {
   description = "ID of project ROUTE"
   value       = aws_route_table.route.id
 }
+
+output "security_group_id"{
+  description = "ID of Security group"
+  value       = aws_security_group.security_group.id
+}

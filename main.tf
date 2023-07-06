@@ -6,6 +6,7 @@ module "vpc" {
   gateway_name           = var.gateway_name
   route_table_name       = var.route_table_name
   route_table_cidr_block = var.route_table_cidr_block
+  security_group_name    = var.security_group_name
 }
 
 module "eks" {
@@ -15,6 +16,7 @@ module "eks" {
   eks_cluster_name      = var.eks_cluster_name
   node_group_name       = var.node_group_name
   subnet_id             = module.vpc.subnet_id
+  security_group_ids    = module.vpc.security_group_id
 
   depends_on = [
     module.vpc

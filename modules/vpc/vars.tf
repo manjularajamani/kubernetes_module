@@ -4,3 +4,4 @@ variable "subnets_data" {}
 variable "gateway_name" {}
 variable "route_table_name" {}
 variable "route_table_cidr_block" {}
+variable "security_group_name" {}

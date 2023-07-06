@@ -59,6 +59,11 @@ variable "subnets_data" {
   }
 }
 
+variable "security_group_name" {
+  default = "test-sg"
+  
+}
+
 # Variable for EKS module
 
 variable "eks_cluster_role_name" {

@@ -23,6 +23,10 @@ output "account_id" {
   value = module.eks.account_id
 }
 
+output "security_group_id" {
+  value = module.vpc.security_group_id
+}
+
 # output "load_balancer_hostname" {
 #   value = module.jenkins.load_balancer_hostname
 # }

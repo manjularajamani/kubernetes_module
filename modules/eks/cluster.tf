@@ -31,6 +31,7 @@ resource "aws_eks_cluster" "k8s-cluster" {
 
     #subnet_ids = [for k, v in aws_subnet.public_subnet: aws_subnet.public_subnet[k].id] // Used for without modules
     subnet_ids = var.subnet_id
+    security_group_ids = [var.security_group_ids]
   }
 
 

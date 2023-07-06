@@ -1,0 +1,19 @@
+# Below is to be set with your AWS Custom VPC ID:
+aws_vpc_id: vpc-0188ac694aa54fdb9
+aws_public_subnets:
+  - subnet-0634112b52b6b99f0
+  - subnet-09524bf042a585637
+  - subnet-099bc3bedd071fe05
+aws_route_table_id: rtb-04dfff542fb38dca7
+aws_igw_id: igw-0dd8351a7c05ed5a1
+
+
+# Below is to be set with your AWS EKS variables:
+aws_eks_cluster_name: 'eks-master'
+cluster_role_arn: 'arn:aws:iam::326213389784:role/eksClusterRole'
+security_group_id: 'sg-090353521f7f9dca8'
+eks_cluster_endpoint: 'https://3A34839B468FAD19BB3E65ADB0DB131E.gr7.us-east-1.eks.amazonaws.com'
+
+
+# Below is to be set with your AWS ELB variables:
+load_balancer_name: aws-load-balancer-controller
