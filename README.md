@@ -99,3 +99,21 @@ kubectl get secret grafana -n monitoring -o yaml
 ```
 
 Decode the credentials and use it
+
+
+# Infrastructure testing using Chef Inspec
+
+## step: 1
+Install the [Chef Inspec Tool](https://docs.chef.io/inspec/install/)
+
+## step: 2
+Run the bellow command to create the default file structure of inspec
+```
+inspec init profile --platform aws <your-dir-name>
+```
+
+## step: 3
+To run the inspec test files run the below command
+```
+inspec exec . -t aws:// --input-file inputs.yml
+```

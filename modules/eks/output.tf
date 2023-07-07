@@ -29,4 +29,6 @@ output "account_id" {
   value = data.aws_caller_identity.current.account_id
 }
 
-
+output "eks_worker_name" {
+  value = aws_eks_node_group.k8s-worker.node_group_name
+}

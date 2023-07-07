@@ -27,6 +27,14 @@ output "security_group_id" {
   value = module.vpc.security_group_id
 }
 
+output "eks_cluster_endpoint" {
+  value = module.eks.endpoint
+}
+
+output "eks_worker_name" {
+  value = module.eks.eks_worker_name
+}
+
 # output "load_balancer_hostname" {
 #   value = module.jenkins.load_balancer_hostname
 # }

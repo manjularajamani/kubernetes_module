@@ -80,7 +80,7 @@ variable "eks_cluster_name" {
 }
 
 variable "node_group_name" {
-  default = "nodegroup1"
+  default = "nodegroup"
 
 }
 
