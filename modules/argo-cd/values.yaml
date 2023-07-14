@@ -18,7 +18,7 @@ server:
       alb.ingress.kubernetes.io/healthy-threshold-count: '2'
       alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
       alb.ingress.kubernetes.io/group.name: alb.group
-      alb.ingress.kubernetes.io/group.order: '2'
+      alb.ingress.kubernetes.io/group.order: '3'
    
 
     hosts: 
@@ -26,11 +26,3 @@ server:
     paths:
       - /argocd
     pathType: Prefix
-    # extraPaths: 
-    #   - path: /argocd
-    #     pathType: Prefix
-    #     backend:
-    #       service:
-    #         name: argocd-server
-    #         port:
-    #           name: 80
