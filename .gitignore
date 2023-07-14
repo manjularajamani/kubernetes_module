@@ -1,4 +1,4 @@
 .terraform*
-terrsform.*
+terraform.*
 terraform.tfstate.*
 node_modules

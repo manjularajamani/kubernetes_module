@@ -79,6 +79,16 @@ module "grafana" {
   cluster_certificate = module.eks.kubeconfig-certificate-authority-data
 }
 
+module "argocd" {
+  source        = "./modules/argo-cd"
+  argocd_name = var.argocd_name
+  argocd_repo  = var.argocd_repo
+  argocd_chart = var.argocd_chart
+  argocd_namespace = var.argocd_namespace
+  cluster_endpoint    = module.eks.endpoint
+  cluster_token       = module.eks.token
+  cluster_certificate = module.eks.kubeconfig-certificate-authority-data
+}
 
 module "ebs_csi" {
   source        = "./modules/ebs-csi"

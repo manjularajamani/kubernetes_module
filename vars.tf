@@ -173,6 +173,26 @@ variable "grafana_namespace" {
   default = "monitoring"
 }
 
+# Variables for ArgoCD
+
+variable "argocd_name" {
+  default = "argocd"
+}
+
+variable "argocd_repo" {
+  default = "https://argoproj.github.io/argo-helm"
+}
+
+variable "argocd_chart" {
+  default = "argo-cd"
+
+}
+
+variable "argocd_namespace" {
+  default = "monitoring"
+}
+
+
 
 # Variable for aws-ebs-csi-driver module
 
