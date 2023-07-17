@@ -4,6 +4,7 @@ controller:
   installPlugins:
     - prometheus:2.2.1
     - cloudbees-disk-usage-simple:178.v1a_4d2f6359a_8
+    - kubernetes:3971.v94b_4c914ca_75
 
   jenkinsUriPrefix: "/jenkins"
 

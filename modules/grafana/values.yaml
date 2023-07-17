@@ -23,7 +23,7 @@ ingress:
     alb.ingress.kubernetes.io/group.order: '2'
 
 
-  path: /grafana
+  path: "/grafana"
   pathType: Prefix
   hosts:
     - ""

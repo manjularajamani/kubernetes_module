@@ -24,5 +24,5 @@ server:
     hosts: 
        - ""
     paths:
-      - /argocd
-    pathType: Prefix
+      - "/argocd"
+    pathType: ImplementationSpecific
