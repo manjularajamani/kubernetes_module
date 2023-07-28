@@ -193,7 +193,6 @@ variable "argocd_namespace" {
 }
 
 
-
 # Variable for aws-ebs-csi-driver module
 
 variable "ebs_csi_name" {
@@ -213,5 +212,3 @@ variable "ebs_csi_chart" {
 variable "ebs_csi_namespace" {
   default = "monitoring"
 }
-
-
